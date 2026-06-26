@@ -1,0 +1,24 @@
+[06-Jun-2026 00:38:31 UTC] PHP Warning:  require(/var/www/html/campus-laf/vendor/autoload.php): Failed to open stream: No such file or directory in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:38:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/html/campus-laf/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php:5
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/pages/register.php(4): require()
+#1 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:39:37 UTC] PHP Warning:  require(/var/www/html/campus-laf/vendor/autoload.php): Failed to open stream: No such file or directory in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:39:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/html/campus-laf/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php:5
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/pages/register.php(4): require()
+#1 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:43:11 UTC] PHP Warning:  require(/var/www/html/campus-laf/vendor/autoload.php): Failed to open stream: No such file or directory in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:43:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/html/campus-laf/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php:5
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/pages/register.php(4): require()
+#1 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:44:23 UTC] PHP Warning:  require(/var/www/html/campus-laf/vendor/autoload.php): Failed to open stream: No such file or directory in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
+[06-Jun-2026 00:44:23 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/var/www/html/campus-laf/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php:5
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/pages/register.php(4): require()
+#1 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/mailer.php on line 5
