@@ -15,7 +15,8 @@
 <body>
 <nav>
     <a href="/" class="logo">Campus<span>L&F</span></a>
-    <ul>
+    <button type="button" id="nav-toggle" class="nav-toggle" onclick="toggleNav()" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <ul id="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/pages/browse.php">Browse</a></li>
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -31,14 +32,14 @@
 
         <!-- Theme Switcher -->
         <li style="position:relative">
-            <button onclick="toggleThemeMenu()" id="theme-btn" class="btn btn-outline" style="font-size:0.85rem;padding:0.4rem 0.8rem">
+            <button type="button" onclick="toggleThemeMenu()" id="theme-btn" class="btn btn-outline" style="font-size:0.85rem;padding:0.4rem 0.8rem">
                 🎨 Theme
             </button>
             <div id="theme-menu" style="display:none;position:absolute;right:0;top:110%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);min-width:160px;z-index:200;overflow:hidden">
-                <button onclick="setTheme('dark')"      class="theme-opt">🌑 Dark</button>
-                <button onclick="setTheme('light')"     class="theme-opt">☀️ Light</button>
-                <button onclick="setTheme('cyberpunk')" class="theme-opt">⚡ Cyberpunk</button>
-                <button onclick="setTheme('ocean')"     class="theme-opt">🌊 Ocean</button>
+                <button type="button" onclick="setTheme('dark')"      class="theme-opt">🌑 Dark</button>
+                <button type="button" onclick="setTheme('light')"     class="theme-opt">☀️ Light</button>
+                <button type="button" onclick="setTheme('cyberpunk')" class="theme-opt">⚡ Cyberpunk</button>
+                <button type="button" onclick="setTheme('ocean')"     class="theme-opt">🌊 Ocean</button>
             </div>
         </li>
 
@@ -60,12 +61,27 @@ function setTheme(theme) {
     document.getElementById('theme-menu').style.display = 'none';
 }
 
+function toggleNav() {
+    const navLinks = document.getElementById('nav-links');
+    const toggle = document.getElementById('nav-toggle');
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
 // close menu when clicking outside
 document.addEventListener('click', function(e) {
     const btn  = document.getElementById('theme-btn');
     const menu = document.getElementById('theme-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
     if (menu && !btn.contains(e.target) && !menu.contains(e.target)) {
         menu.style.display = 'none';
+    }
+
+    if (navLinks && navToggle && !navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
     }
 });
 </script>

@@ -1,8 +1,8 @@
 <?php
-define('DB_HOST', 'localhost');
-define('DB_USER', 'ceiscy_eg361');
-define('DB_PASS', '4#Tjh(4&<jhE');
-define('DB_NAME', 'ceiscy_eg361');
+define('DB_HOST', 'sql308.infinityfree.com');
+define('DB_USER', 'if0_42275581');
+define('DB_PASS', '88kayeessieN');
+define('DB_NAME', 'if0_42275581_campus_lnf');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
