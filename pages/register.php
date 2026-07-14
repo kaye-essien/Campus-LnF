@@ -1,30 +1,27 @@
 <?php
 session_start();
 require '../includes/db.php';
-
-$error   = '';
+$error = '';
 $success = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name     = trim($_POST['name']);
     $email    = trim($_POST['email']);
     $password = $_POST['password'];
-
     if (empty($name) || empty($email) || empty($password)) {
         $error = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email address.";
+    } elseif (!str_ends_with($email, '@st.umat.edu.gh')) {
+        $error = "Please use your UMaT student email (@st.umat.edu.gh).";
     } elseif (strlen($password) < 6) {
         $error = "Password must be at least 6 characters.";
     } else {
-        $hash  = password_hash($password, PASSWORD_BCRYPT);
-
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password_hash, is_verified) VALUES (?, ?, ?, 1)");
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+        $stmt = $conn->prepare("INSERT INTO users (name, email, password, verified) VALUES (?, ?, ?, 1)");
         $stmt->bind_param("sss", $name, $email, $hash);
-
         try {
             $stmt->execute();
-            $success = "Account created successfully! You can now <a href='login.php'>login here</a>.";
+            $success = "Account created! You can now <a href='login.php'>login here</a>.";
         } catch (Exception $e) {
             $error = "Email already registered.";
         }
@@ -51,17 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="email" name="email" placeholder="student@st.umat.edu.gh" required>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" id="reg-pw" placeholder="Min 6 characters" required oninput="checkStrength(this.value)">
-                <label style="display:flex;align-items:center;gap:0.5rem;margin-top:0.5rem;cursor:pointer;font-size:0.85rem;color:var(--muted)">
-                    <input type="checkbox" onchange="document.getElementById('reg-pw').type=this.checked?'text':'password'" style="width:15px;height:15px;cursor:pointer">
-                    Show password
-                </label>
-                <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
-                <div class="strength-label" id="strength-label">Enter a password</div>
+                <input type="password" name="password" id="reg-pw" placeholder="Min 6 characters" required>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%;padding:0.75rem;font-size:1rem">
                 Create Account
@@ -73,29 +64,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </div>
-<script>
-function checkStrength(val) {
-    const fill  = document.getElementById('strength-fill');
-    const label = document.getElementById('strength-label');
-    let score = 0;
-    if (val.length >= 6)  score++;
-    if (val.length >= 10) score++;
-    if (/[A-Z]/.test(val)) score++;
-    if (/[0-9]/.test(val)) score++;
-    if (/[^A-Za-z0-9]/.test(val)) score++;
-    const levels = [
-        { pct: '0%',   color: 'transparent', text: 'Enter a password' },
-        { pct: '25%',  color: '#da3633',      text: '😟 Too weak' },
-        { pct: '50%',  color: '#e3b341',      text: '😐 Weak' },
-        { pct: '70%',  color: '#f0883e',      text: '🙂 Fair' },
-        { pct: '85%',  color: '#3fb950',      text: '😊 Strong' },
-        { pct: '100%', color: '#238636',      text: '💪 Very strong' },
-    ];
-    const l = levels[score] || levels[0];
-    fill.style.width      = l.pct;
-    fill.style.background = l.color;
-    label.textContent     = l.text;
-    label.style.color     = l.color;
-}
-</script>
 <?php include '../includes/footer.php'; ?>

@@ -1,0 +1,29 @@
+[04-Jun-2026 04:23:15 UTC] PHP Warning:  require(includes/db.php): Failed to open stream: No such file or directory in /home/ceiscy/SHMS-SDomain/eg361/index.php on line 3
+[04-Jun-2026 04:23:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'includes/db.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ceiscy/SHMS-SDomain/eg361/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/index.php on line 3
+[04-Jun-2026 04:31:59 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'ceiscy_eg361'@'localhost' (using password: YES) in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php:7
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/includes/db.php(7): mysqli->__construct()
+#1 /home/ceiscy/SHMS-SDomain/eg361/index.php(3): require('/home/ceiscy/SH...')
+#2 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php on line 7
+[04-Jun-2026 04:32:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'ceiscy_eg361'@'localhost' (using password: YES) in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php:7
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/includes/db.php(7): mysqli->__construct()
+#1 /home/ceiscy/SHMS-SDomain/eg361/index.php(3): require('/home/ceiscy/SH...')
+#2 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php on line 7
+[04-Jun-2026 04:43:33 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'ceiscy_eg361'@'localhost' (using password: YES) in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php:7
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/includes/db.php(7): mysqli->__construct()
+#1 /home/ceiscy/SHMS-SDomain/eg361/index.php(3): require('/home/ceiscy/SH...')
+#2 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php on line 7
+[04-Jun-2026 04:43:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'ceiscy_eg361'@'localhost' (using password: YES) in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php:7
+Stack trace:
+#0 /home/ceiscy/SHMS-SDomain/eg361/includes/db.php(7): mysqli->__construct()
+#1 /home/ceiscy/SHMS-SDomain/eg361/index.php(3): require('/home/ceiscy/SH...')
+#2 {main}
+  thrown in /home/ceiscy/SHMS-SDomain/eg361/includes/db.php on line 7

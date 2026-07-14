@@ -15,7 +15,6 @@
 <body>
 <nav>
     <a href="/" class="logo">Campus<span>L&F</span></a>
-    <button type="button" id="nav-toggle" class="nav-toggle" onclick="toggleNav()" aria-expanded="false" aria-label="Toggle menu">☰</button>
     <ul id="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/pages/browse.php">Browse</a></li>
@@ -61,27 +60,13 @@ function setTheme(theme) {
     document.getElementById('theme-menu').style.display = 'none';
 }
 
-function toggleNav() {
-    const navLinks = document.getElementById('nav-links');
-    const toggle = document.getElementById('nav-toggle');
-    const isOpen = navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-}
-
 // close menu when clicking outside
 document.addEventListener('click', function(e) {
     const btn  = document.getElementById('theme-btn');
     const menu = document.getElementById('theme-menu');
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
 
     if (menu && !btn.contains(e.target) && !menu.contains(e.target)) {
         menu.style.display = 'none';
-    }
-
-    if (navLinks && navToggle && !navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
     }
 });
 </script>
